@@ -1,8 +1,8 @@
-<marquee><h1 style="color: red;">Seekers</h1></marquee>
-<ul>
-  <li><%= link_to "Create", new_seeker_path %></li>
-</ul>
-<hr>
+<marquee><h1 style="color: red;">Jobs For You</h1></marquee>
+<!-- <ul>
+  <li><%= link_to "Search Job" %></li>
+</ul> -->
+<!-- <hr>
   <% @seekers.each do |seeker| %>
    <b>Seeker ID :</b> <%= seeker.id %><br>
   <b> Name :</b> <%= seeker.name %><br>
@@ -15,6 +15,25 @@
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
+</ul>
+     <hr>
+  <% end %> -->
+
+  <%= form_with url: "/seekers/search/job", method: :get do |form| %>
+  <%= form.label :title, "Search job:" %>
+  <%= form.text_field :title %>
+  <%= form.submit "Search" %>
+<% end %>
+
+<hr>
+  <% @jobs.each do |job| %>
+   <b>Seeker ID :</b> <%= job.id %><br>
+  <b> Name :</b> <%= job.title %><br>
+  <b>Age :</b> <%= job.description %><br>
+  <b>Qualification :</b> <%= job.requirement %><br>
+   <b>Experience:</b> <%= job.location %><br>
+ <ul>
+  <li><%= link_to "Apply" %></li>
 </ul>
      <hr>
   <% end %>

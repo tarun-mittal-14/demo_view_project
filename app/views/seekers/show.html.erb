@@ -8,6 +8,10 @@
 
    <ul>
   <li><%= link_to "Edit", edit_seeker_path(@seeker) %></li>
+    <li><%= link_to "view_applied_jobs"%></li>
+        <li><%= link_to "back",seekers_path%></li>
+
+
   <li><%= link_to "Destroy", seeker_path(@seeker), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"

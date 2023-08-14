@@ -2,6 +2,7 @@ class SeekersController < ApplicationController
 
   def index
     @seekers = Seeker.all
+    @jobs = Job.all
   end
 
   def new
@@ -38,11 +39,10 @@ class SeekersController < ApplicationController
     end
   end
 
-  # def search_job
-  #   job = Job.where("title LIKE '%#{params[:title].strip}%'")
-  #   return render json: job unless job.empty?
-  #   render json: { message: 'there is no job with this title' }
-  # end
+  def search_job
+    @job = Job.where("title LIKE '%#{params[:title].strip}%'")
+     redirect_to  @job
+  end
 
   # def view_jobs
   #   jobs = Job.all
