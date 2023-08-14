@@ -1,0 +1,20 @@
+<marquee><h1 style="color: red;">Seekers</h1></marquee>
+<ul>
+  <li><%= link_to "Create", new_seeker_path %></li>
+</ul>
+<hr>
+  <% @seekers.each do |seeker| %>
+   <b>Seeker ID :</b> <%= seeker.id %><br>
+  <b> Name :</b> <%= seeker.name %><br>
+  <b>Age :</b> <%= seeker.age %><br>
+  <b>Qualification :</b> <%= seeker.qualification %><br>
+   <b>Experience:</b> <%= seeker.experience %><br>
+ <ul>
+  <li><%= link_to "Edit", edit_seeker_path(seeker) %></li>
+      <li><%= link_to "Destroy", seeker_path(seeker), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
+     <hr>
+  <% end %>

@@ -1,0 +1,15 @@
+<b>Seeker Name:</b> <%= @seeker.name %><br>
+    <b>email:</b> <%= @seeker.email %><br>
+    <b>age:</b> <%= @seeker.age %><br>
+
+   <b>qualification:</b> <%= @seeker.qualification %><br>
+           <b>experience:</b> <%= @seeker.experience %><br>
+
+
+   <ul>
+  <li><%= link_to "Edit", edit_seeker_path(@seeker) %></li>
+  <li><%= link_to "Destroy", seeker_path(@seeker), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
